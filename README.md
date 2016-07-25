@@ -1,3 +1,5 @@
+Environment - Spring Boot, Spring JPA, H2, Spring MVC REST, Tomcat
+
 Below are the rest service end points, In order to run the app use the below command
 
 mvn tomcat7:run
