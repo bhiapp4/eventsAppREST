@@ -20,14 +20,18 @@ public class UserService {
 	}
 	
 	public void delete(Long userId) throws Exception{
-		if(this.findOne(userId) == null){
+		if(userRepository.findOne(userId) == null){
 			throw new ResourceNotFoundException("User with "+userId+" not found");
 		}
 		userRepository.delete(userId);
 	}
 	
 	public User findOne(Long userId) throws Exception{
-		return userRepository.findOne(userId);
+		User user = userRepository.findOne(userId);
+		if(user == null){
+			throw new ResourceNotFoundException("User with "+userId+" not found");
+		}
+		return user;
 	}
 	
 	public List<User>findAll() throws Exception{

@@ -30,6 +30,17 @@ public class Event {
 	private LocalTime endTime;
 	private LocalDateTime createdDate;
 	private LocalDateTime updatedDate;
+	
+	public Event(){
+		
+	}
+	
+	public Event(String name, LocalDate eventDate, LocalTime startTime, LocalTime endTime){
+		this.name = name;
+		this.date = eventDate;
+		this.startTime = startTime;
+		this.endTime = endTime;
+	}
 
 	@JsonIgnore
 	@ManyToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})

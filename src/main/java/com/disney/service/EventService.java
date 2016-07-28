@@ -61,7 +61,11 @@ public class EventService {
 	}
 
 	public Event findOne(Long eventId) throws Exception {
-		return eventRepository.findOne(eventId);
+		Event event = eventRepository.findOne(eventId);
+		if (event == null) {
+			throw new ResourceNotFoundException("Event with " + eventId + " not found");
+		}
+		return event;
 	}
 	
 	public List<Event>findAll() throws Exception{

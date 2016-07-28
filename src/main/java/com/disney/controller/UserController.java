@@ -4,8 +4,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 
-import javax.websocket.server.PathParam;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.disney.domain.Event;
 import com.disney.domain.User;
 import com.disney.service.UserService;
+
 
 @RestController
 @RequestMapping("user")
@@ -55,7 +54,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "{userId}", method = RequestMethod.DELETE)
-	public ResponseEntity<HttpStatus> delete(@PathParam("userId") Long userId) throws Exception {
+	public ResponseEntity<HttpStatus> delete(@PathVariable("userId") Long userId) throws Exception {
 		userService.delete(userId);
 		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
 	}

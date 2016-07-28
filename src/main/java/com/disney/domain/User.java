@@ -28,6 +28,17 @@ public class User implements Serializable {
 	private LocalDateTime createdDate;
 	private LocalDateTime updatedDate;
 	
+	public User(){
+		
+	}
+	
+	public User(String userName, String firstName, String middleName, String lastName){
+		this.userName = userName;
+		this.firstName = firstName;
+		this.middleName = middleName;
+		this.lastName = lastName;
+	}
+	
 	@JsonIgnore
 	@ManyToMany(mappedBy = "users")
 	private Set<Event> events;
